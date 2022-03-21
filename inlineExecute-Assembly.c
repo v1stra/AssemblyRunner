@@ -418,6 +418,7 @@ int main(int argc, char ** argv) {//Executes .NET assembly in memory
 			if (file_read(assemblyName, &assemblyBytes, &assemblyByteLen, 0)) {
 
 				if (string_bool_args_by_name(argc, argv, "decrypt", &decrypt)) {
+					printf("[+] Decrypting...\n");
 					bytes_xor(assemblyBytes, assemblyByteLen);
 				}
 

@@ -109,9 +109,11 @@ BOOL file_write(char * fileName, PBYTE * data, DWORD length)
 }
 
 BOOL bytes_xor(PBYTE data, DWORD length) {
+	const char* key = "TESTKEY";
+	int keylength = strlen(key);
 	DWORD i;
 	for (i = 0; i < length; i++) {
-		data[i] ^= 0x41;
+		data[i] ^= key[i % keylength];
 	}
 	return TRUE;
 }
